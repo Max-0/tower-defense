@@ -10,6 +10,8 @@ def getJsonRessource(ressource):
     print(data)
     json_data.close()
     return (data)
+    
 def getUrlRessource(ressource):
 	return (ressourcesPath+ressource)
+
 window = getJsonRessource("window")

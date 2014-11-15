@@ -2,7 +2,8 @@ import sys
 sys.path.append("..")
 import tkinter as tk
 import config 
-from random import random
+import random
+import model.loaders as model
 
 class View(tk.Frame):
     """docstring for View"""
@@ -29,6 +30,12 @@ class mapView(View):
         self.title.place(relx=0.5, rely=0.01, anchor=tk.CENTER)
         self.displayBase()
         self.displayShip()
+        root.delay(self.ship.moveLabel)
+        root.delay(self.ship.moveLabel, 3000)
+        root.delay(self.ship.moveLabel, 4000)
+        root.delay(self.ship.moveLabel, 5000)
+
+
 
     def displayBase(self):
         self.base = Ressources(self, "base")
@@ -36,18 +43,23 @@ class mapView(View):
 
     def displayShip(self):
         self.ship = Ressources(self, "ship")
-        self.ship.getLabel().place(relx=random(), rely=random(), anchor=tk.CENTER)
+        self.ship.getLabel().place(relx=random.random(), rely=random.random(), anchor=tk.CENTER)
+
 
 class Ressources(object):
     """docstring for Ressources"""
     def __init__(self, root, ressource, backgroundColor=config.window["backgroundColor"]):
         super(Ressources, self).__init__()
+        self.root = root
         photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
         self.label = tk.Label(root, image=photo, bg=backgroundColor)
         self.label.image = photo # keep a reference!
 
     def getLabel(self):
         return (self.label)
+
+    def moveLabel(self):
+        self.label.place_configure(relx=random.random(), rely=random.random())
 
 class Application(tk.Tk):
     def __init__(self):
@@ -57,10 +69,17 @@ class Application(tk.Tk):
         self.menu = None
         self.displayMenu()
         self.displayMap()
+        self.game = {}
+        self.game["towers"] = model.loadTowers(getUrlRessource("towers.json"))
+        self.game["missiles"] = model.loadTowers(getUrlRessource("missiles.json"))
+        self.game["troops"] = model.loadTowers(getUrlRessource("troops.json"))
+
         self.mainloop()
 
         #self.pack()
         #self.createWidgets()
+    def delay(self, callback, time=2000):
+        self.after(time, callback)
 
     def displayMenu(self):
         if (self.map):
