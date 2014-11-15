@@ -1,4 +1,4 @@
-from time import *
+import time
 import json
 
 

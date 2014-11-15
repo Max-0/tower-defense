@@ -16,9 +16,7 @@ class Ressources(object):
     def __init__(self, root, ressource, backgroundColor=config.window["backgroundColor"]):
         super(Ressources, self).__init__()
         self.root = root
-        photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
-        self.label = tk.Label(root, image=photo, bg=backgroundColor)
-        self.label.image = photo # keep a reference!
+        self.photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
 
 
 class ImageLabel(tk.Label):
@@ -49,19 +47,19 @@ class mapView(View):
         self.menuButton.place(relx=0.9, rely=0.01, anchor=tk.CENTER)
         self.title.place(relx=0.5, rely=0.01, anchor=tk.CENTER)
         self.sprites = []
+        self.towersRessource = Ressources(self, "towers").photo
         self.displayBase()
         self.displayTowers()
 
+
     def displayBase(self):
         self.base = Ressources(self, "base")
-        self.base.getLabel().place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
     def displayTowers(self):
-        self.towersRessource = Ressources(self, "towers")
         for tower in self.root.game["towers"]:
-            element = ImageLabel(root, self.towersRessource)
+            element = ImageLabel(self, self.towersRessource)
             element.place(relx=tower.pos[0]/config.window["width"],rely=tower.pos[1]/config.window["height"])
-            self.sprites.append()
+            self.sprites.append(element)
 
 class Application(tk.Tk):
     def __init__(self):
@@ -69,12 +67,14 @@ class Application(tk.Tk):
         #self.geometry(str(self.width)+"x"+str(self.height))
         self.map = None
         self.menu = None
+        self.game = {}
+        self.game["missiles"] = model.loadMissiles(config.getUrlRessource("missiles.json"))
+        self.game["towers"] = model.loadTowers(config.getUrlRessource("towers.json"))
+        self.game["troops"] = model.loadTroop(config.getUrlRessource("troops.json"))
+        model.towers["fast"].new((200, 300))
+        model.towers["fast"].new((600, 600))
         self.displayMenu()
         self.displayMap()
-        self.game = {}
-        self.game["towers"] = model.loadTowers(getUrlRessource("towers.json"))
-        self.game["missiles"] = model.loadTowers(getUrlRessource("missiles.json"))
-        self.game["troops"] = model.loadTowers(getUrlRessource("troops.json"))
 
         self.mainloop()
 

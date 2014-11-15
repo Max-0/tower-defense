@@ -1,4 +1,4 @@
-from baseImports import *
+from model.baseImports import *
 
 
 class Tower(GameObject):

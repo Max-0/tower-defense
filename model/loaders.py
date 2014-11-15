@@ -1,4 +1,4 @@
-from factory import *
+from model.factory import *
 
 
 towers = {}
@@ -9,23 +9,23 @@ troops = {}
 troopTypes = {"base" : Troop}
 
 
-def loadTowers(self, path):
+def loadTowers(path):
 	l = []
 	data = open(path)
 	towersData = json.load(data)
 	for k in towersData.keys():
+		print(towersData[k])
 		towers[k] = TowerFactory(towerTypes[towersData[k]["type"]],
 								 towersData[k]["range"],
 								 towersData[k]["firerate"],
-								 towersData[k]["missiletype"],
-								 missiles[towersData[k]["missiles"]],
+								 missileTypes[towersData[k]["missiletype"]],
+								 l,
 								 towersData[k]["ressId"],
-								 towersData[k]["size"],
-								 l)
+								 towersData[k]["size"])
 	data.close()
 	return l
 
-def loadMissiles(self, path):
+def loadMissiles(path):
 	l = []
 	data = open(path)
 	missilesData = json.load(data)
@@ -33,14 +33,14 @@ def loadMissiles(self, path):
 		missiles[k] = MissileFactory(missileTypes[missilesData[k]["type"]],
 									 missilesData[k]["dmg"],
 									 missilesData[k]["maxspeed"],
+									 l,
 									 missilesData[k]["ressId"],
-									 missilesData[k]["size"],
-									 l)
+									 missilesData[k]["size"])
 	data.close()
 	return l
 
 
-def loadTroop(self, path):
+def loadTroop(path):
 	l = []
 	data = open(path)
 	troopsData = json.load(data)
@@ -49,8 +49,8 @@ def loadTroop(self, path):
 								 [],
 							     troopsData[k]["dmg"],
 								 troopsData[k]["maxspeed"],
+								 l,
 								 troopsData[k]["ressId"],
-								 troopsData[k]["size"],
-								 l)
+								 troopsData[k]["size"])
 	data.close()
 	return l
