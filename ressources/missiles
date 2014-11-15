@@ -1,0 +1,12 @@
+{
+	"fast" : {
+			"type" : "base",
+			"dmg" : 100,
+			"maxspeed" : 20
+		 }
+	"slow" : {
+			"type" : "base",
+			"dmg" : 300
+			"maxspeed" : 5
+		 }
+}
