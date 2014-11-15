@@ -8,7 +8,6 @@ class Tower(GameObject):
         self.range = range
         self.firerate = firerate
         self.missileFactory = missileFactory
-        super(Tower, self).__init__(self.pos=pos)
         if(not lastFire):
             self.lastFire = time.time()
 
@@ -25,7 +24,6 @@ class Missile(GameObject):
         super(Missile, self).__init__(pos)
         self.dmg = dmg
         self.target = target
-        self.pos = pos
 
     def nextMove(self):
         if(self.target.exists and self.exists):

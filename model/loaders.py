@@ -1,4 +1,4 @@
-import json
+from factory import *
 
 
 towers = {}
@@ -19,6 +19,8 @@ def loadTowers(self, path):
 								 towersData[k]["firerate"],
 								 towersData[k]["missiletype"],
 								 missiles[towersData[k]["missiles"]],
+								 towersData[k]["ressId"],
+								 towersData[k]["size"],
 								 l)
 	data.close()
 	return l
@@ -31,6 +33,8 @@ def loadMissiles(self, path):
 		missiles[k] = MissileFactory(missileTypes[missilesData[k]["type"]],
 									 missilesData[k]["dmg"],
 									 missilesData[k]["maxspeed"],
+									 missilesData[k]["ressId"],
+									 missilesData[k]["size"],
 									 l)
 	data.close()
 	return l
@@ -45,6 +49,8 @@ def loadTroop(self, path):
 								 [],
 							     troopsData[k]["dmg"],
 								 troopsData[k]["maxspeed"],
+								 troopsData[k]["ressId"],
+								 troopsData[k]["size"],
 								 l)
 	data.close()
 	return l

@@ -1,4 +1,5 @@
 from time import *
+import json
 
 
 def distance(a, b):
@@ -17,13 +18,14 @@ def getDir(start, stop):
 	return (stop[0]-start[0], stop[1]-start[1])
 
 class GameObject(object):
-	def __init__(self, pos, ressourceId = None, onMap = False, speed = (0, 0), size = (1, 1)):
+	def __init__(self, pos, ressId = -1, onMap = False, speed = (0, 0), size = (1, 1)):
 		super(object, self).__init__()
 		self.pos = pos
 		self.onMap = onMap
 		self.speed = speed
 		self.exists = True
 		self.size = size
+		self.ressId = ressId
 
 	def hit(self, qty):
 		pass
