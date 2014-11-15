@@ -5,13 +5,11 @@ import config
 import random
 import model.loaders as model
 
-class Ressources(object):
-    """docstring for Ressources"""
-    def __init__(self, root, ressource, backgroundColor=config.window["backgroundColor"]):
-        super(Ressources, self).__init__()
-        self.root = root
-        self.photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
 
+class View(tk.Frame):
+    """docstring for View"""
+    def __init__(self, root, width, height, bg):
+        super(View, self).__init__(root, width=width, height=height, bg=bg)
 
 class ImageLabel(tk.Label):
     """docstring for Image"""
@@ -63,7 +61,7 @@ class mapView(tk.Canvas):
             self.create_image((flag.pos[0], flag.pos[1]), image=self.flagRessource)
 
     def displayBase(self):
-        self.base = Ressources(self, "base")
+        self.base = model.Ressources(self, "base")
 
     def displayTowers(self):
         for tower in self.root.game["towers"]:

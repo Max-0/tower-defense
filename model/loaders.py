@@ -1,20 +1,11 @@
 from model.factory import *
 
 
-towers = {}
-towerTypes = {"base" : Tower}
-missiles = {}
-missileTypes = {"base" : Missile}
-troops = {}
-troopTypes = {"base" : Troop}
-
-
-def loadTowers(path):
+def loadTowers(path, towers, towerTypes, missileTypes):
 	l = []
 	data = open(path)
 	towersData = json.load(data)
 	for k in towersData.keys():
-		print(towersData[k])
 		towers[k] = TowerFactory(towerTypes[towersData[k]["type"]],
 								 towersData[k]["range"],
 								 towersData[k]["firerate"],
@@ -25,7 +16,7 @@ def loadTowers(path):
 	data.close()
 	return l
 
-def loadMissiles(path):
+def loadMissiles(path, missiles, missileTypes):
 	l = []
 	data = open(path)
 	missilesData = json.load(data)
@@ -40,7 +31,7 @@ def loadMissiles(path):
 	return l
 
 
-def loadTroop(path):
+def loadTroop(path, troops, troopTypes):
 	l = []
 	data = open(path)
 	troopsData = json.load(data)
