@@ -11,14 +11,6 @@ class View(tk.Frame):
         super(View, self).__init__(root, width=width, height=height, bg=bg)
 
 
-class Ressources(object):
-    """docstring for Ressources"""
-    def __init__(self, root, ressource, backgroundColor=config.window["backgroundColor"]):
-        super(Ressources, self).__init__()
-        self.root = root
-        self.photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
-
-
 class ImageLabel(tk.Label):
     """docstring for Image"""
     def __init__(self, root, imageData, bg=config.window["backgroundColor"]):
@@ -47,13 +39,13 @@ class mapView(View):
         self.menuButton.place(relx=0.9, rely=0.01, anchor=tk.CENTER)
         self.title.place(relx=0.5, rely=0.01, anchor=tk.CENTER)
         self.sprites = []
-        self.towersRessource = Ressources(self, "towers").photo
+        self.towersRessource = model.Ressources(self, "towers").photo
         self.displayBase()
         self.displayTowers()
 
 
     def displayBase(self):
-        self.base = Ressources(self, "base")
+        self.base = model.Ressources(self, "base")
 
     def displayTowers(self):
         for tower in self.root.game["towers"]:

@@ -26,7 +26,7 @@ class TowerFactory(object):
 		self.firerate = firerate
 		self.missileFactory = missileFactory
 		self.ressId = ressId
-		self.size = size
+		self.size = size.split("(, ")
 		self.towerList = towerList
 
 	def new(self, at):

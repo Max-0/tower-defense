@@ -1,4 +1,4 @@
-from model.baseImports import *
+from model.ressources import *
 
 
 class Tower(GameObject):
@@ -71,7 +71,7 @@ class Troop(Missile):
                     self.target.hit(dmg)
                     self.exists = False
                 else:
-                    self.nextTarget
+                    self.nextTarget()
             self.speed = normalizeSpeed(getDir(self.pos, target.pos), self.maxSpeed)
         else:
             self.exists = False
