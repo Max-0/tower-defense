@@ -4,11 +4,15 @@
 			"range" : 3,
 			"firerate" : 400,
 			"missiletype" : base,
+			"ressId" : 1,
+			"size" : (40, 40)
 		 }
 	"slow" : {
 			"type" : "base",
 			"range" : 9,
 			"firerate" : 800,
 			"missiletype" : base
+			"ressId" : 1,
+			"size" : (40, 40)
 		 }
 }

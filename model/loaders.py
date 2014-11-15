@@ -11,7 +11,7 @@ troopTypes = {"base" : Troop}
 
 def loadTowers(self, path):
 	l = []
-	data = open(path+"/towers")
+	data = open(path)
 	towersData = json.load(data)
 	for k in towersData.keys():
 		towers[k] = TowerFactory(towerTypes[towersData[k]["type"]],
@@ -27,7 +27,7 @@ def loadTowers(self, path):
 
 def loadMissiles(self, path):
 	l = []
-	data = open(path+"/missiles")
+	data = open(path)
 	missilesData = json.load(data)
 	for k in missilesData.keys():
 		missiles[k] = MissileFactory(missileTypes[missilesData[k]["type"]],
@@ -42,7 +42,7 @@ def loadMissiles(self, path):
 
 def loadTroop(self, path):
 	l = []
-	data = open(path+"/troops")
+	data = open(path)
 	troopsData = json.load(data)
 	for k in troopsData.keys():
 		troops[k] = TroopFactory(troopTypes[troopsData[k]["type"]],
