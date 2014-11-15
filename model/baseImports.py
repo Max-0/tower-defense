@@ -12,7 +12,7 @@ def squareCollide(a, b):
 	   			b.pos[1] > a.pos[1] + a.size[1])
 
 def normalizeSpeed(dir, maxSpeed):
-	return (dir[0]/distance((0,  0), dir), dir[1]/distance((0,  0), dir)) * maxSpeed
+	return (dir[0]/distance((0,  0), dir) * maxSpeed, dir[1]/distance((0,  0), dir) * maxSpeed)
 
 def getDir(start, stop):
 	return (stop[0]-start[0], stop[1]-start[1])
