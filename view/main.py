@@ -102,3 +102,15 @@ class Application(tk.Tk):
             self.map.pack()
 
 app = Application()
+
+
+
+
+"""
+onclick (x, y){
+    self.listFlag.append((x,y))
+    .append()
+}
+
+"""
+
