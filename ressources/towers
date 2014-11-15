@@ -1,0 +1,14 @@
+{
+	"fast" : {
+			"type" : "base",
+			"range" : 3,
+			"firerate" : 400,
+			"missiletype" : base,
+		 }
+	"slow" : {
+			"type" : "base",
+			"range" : 9,
+			"firerate" : 800,
+			"missiletype" : base
+		 }
+}
