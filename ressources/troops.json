@@ -2,14 +2,14 @@
 	"fast" : {
 			"type" : "base",
 			"dmg" : 100,
-			"maxspeed" : 15,
+			"maxspeed" : 5,
 			"ressId" : 2,
 			"size" : "(20, 20)"
 		 },
 	"slow" : {
 			"type" : "base",
-			"dmg" : "300",
-			"maxspeed" : 5,
+			"dmg" : 300,
+			"maxspeed" : 2,
 			"ressId" : 2,
 			"size" : "(20, 20)"
 		 }

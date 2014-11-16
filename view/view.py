@@ -89,6 +89,7 @@ class Application(tk.Tk):
         self.map.bind("<Button-1>", self.addFlag)
 
     def wipeFlag(self, event):
+        self.flagPath = []
         self.model.changeFlags([])
 
     def displayMap(self):

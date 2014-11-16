@@ -45,7 +45,6 @@ class Model(object):
 			self.missiles[m].nextMove()
 			self.missiles[m].move()
 			if(not self.missiles[m].exists):
-				print("deleted missile")
 				del self.missiles[m]
 			else:
 				m += 1
@@ -54,7 +53,6 @@ class Model(object):
 			self.troops[t].nextMove()
 			self.troops[t].move()
 			if(not self.troops[t].exists):
-				print("deleted troop")
 				del self.troops[t]
 			else:
 				t += 1
@@ -64,7 +62,6 @@ class Model(object):
 				if(self.towers[t].canShoot(target)):
 					self.towers[t].shoot(target)
 			if(not self.towers[t].exists):
-				print("deleted tower")
 				del self.towers[t]
 			else:
 				t += 1
