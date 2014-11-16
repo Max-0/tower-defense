@@ -4,8 +4,8 @@ import config
 
 class Ressources(object):
     """docstring for Ressources"""
-    def __init__(self):
-        super(Ressources, self).__init__(ressource)
+    def __init__(self, ressource):
+        super(Ressources, self).__init__()
         self.photo = tk.PhotoImage(file=config.getUrlRessource(ressource)+".gif")
 
 class RessourceManager(object):
@@ -14,7 +14,8 @@ class RessourceManager(object):
 		self.ressTable = {}
 		self.defaultImg = None
 		dataF = open(ressListPath)
-		self.loadRessources(dataF[0])
+		data = json.load(dataF)
+		self.loadRessources(data["data"])
 		dataF.close()
 
 	def loadRessources(self, ressourcesFile):

@@ -5,6 +5,7 @@ def loadTowers(path, towers, towerTypes, missileTypes):
 	l = []
 	data = open(path)
 	towersData = json.load(data)
+	print(towersData)
 	for k in towersData.keys():
 		towers[k] = TowerFactory(towerTypes[towersData[k]["type"]],
 								 towersData[k]["range"],
@@ -31,7 +32,7 @@ def loadMissiles(path, missiles, missileTypes):
 	return l
 
 
-def loadTroop(path, troops, troopTypes):
+def loadTroops(path, troops, troopTypes):
 	l = []
 	data = open(path)
 	troopsData = json.load(data)

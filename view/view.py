@@ -1,9 +1,7 @@
 import sys
 sys.path.append("..")
-import tkinter as tk
 import config 
-import random
-import model.loaders as model
+import tkinter as tk
 
 
 class View(tk.Frame):
@@ -26,64 +24,46 @@ class homeView(tk.Frame):
 
 class menuView(tk.Frame):
     """docstring for menuView"""
-    def __init__(self, root, width=config.window["width"], height=config.window["height"], bg=config.window["backgroundColor"]):
+    def __init__(self, root, ressourceManager, width=config.window["width"], height=config.window["height"], bg=config.window["backgroundColor"]):
         super(menuView, self).__init__(root, width=config.window["width"])
-        self.clearButtonRessource = Ressources(self, "clearButton").photo
+        self.ressourceManager = ressourceManager
+        self.clearButtonRessource = self.ressourceManager.getRessource(5).photo
         self.clearButton = ImageLabel(self, self.clearButtonRessource)
-        self.clearButton.pack();
+        self.clearButton.pack()
         self.clearButton.bind("<Button-1>", root.wipeFlag)
         
 class mapView(tk.Canvas):
     """docstring for mapView"""
-    def __init__(self, root, width=config.window["width"], height=config.window["height"], bg=config.window["backgroundColor"]):
+    def __init__(self, root, ressourceManager, width=config.window["width"], height=config.window["height"], bg=config.window["backgroundColor"]):
         super(mapView, self).__init__(root, width = width, height=height)
         self.config(background=bg, borderwidth=0)
-        self.root = root
-        self.bg = bg
+        self.ressourceManager = ressourceManager
         #self.title = tk.Label(self, text="Map", bg=bg)
         #self.menuButton = tk.Button(self, text="Menu", command=root.displayMenu, bg=bg)
         #self.menuButton.place(relx=0.9, rely=0.01, anchor=tk.CENTER)
         #self.title.place(relx=0.5, rely=0.01, anchor=tk.CENTER)
-        self.sprites = []
-        self.towersRessource = Ressources(self, "towers").photo
-        self.flagRessource = Ressources(self, "flag").photo
-        self.displayBase()
-        self.displayTowers()
 
-    def refresh(self):
+    def refresh(self, objects):
         self.delete("all")
-        self.displayBase()
-        self.displayTowers()
-        self.displayFlags()
+        self.displayObjects(objects)
 
-    def displayFlags(self):
-        for flag in self.root.flagPath:
-            self.create_image((flag.pos[0], flag.pos[1]), image=self.flagRessource)
-
-    def displayBase(self):
-        self.base = model.Ressources(self, "base")
-
-    def displayTowers(self):
-        for tower in self.root.game["towers"]:
-            self.create_image((tower.pos[0], tower.pos[1]), image=self.towersRessource)
+    def displayObjects(self, objects):
+        for obj in objects:
+            self.create_image((obj.pos[0], obj.pos[1]), image=self.ressourceManager.getRessource(obj.ressId).photo)
 
 class Application(tk.Tk):
     def __init__(self):
         super(Application, self).__init__()
         self.geometry(str(config.window["width"])+"x"+str(config.window["height"]))
+        
+
+    def initialize(self, model):
         self.map = None
         self.menu = None
-        self.game = {}
-        self.flagPath = model.FlagPath().l
-        self.game["missiles"] = model.loadMissiles(config.getUrlRessource("missiles.json"))
-        self.game["towers"] = model.loadTowers(config.getUrlRessource("towers.json"))
-        self.game["troops"] = model.loadTroop(config.getUrlRessource("troops.json"))
-        model.towers["fast"].new((200, 300))
-        model.towers["fast"].new((600, 600))
+        self.model = model
+        self.flagPath = []
         self.displayMap()
         self.displayMenu()
-        self.mainloop()
-
 
 
         #self.pack()
@@ -96,20 +76,20 @@ class Application(tk.Tk):
             self.menu.place(relx=1, rely=0, anchor=tk.NE)
             self.menu.lift()
         else:
-            self.menu = menuView(self)
+            self.menu = menuView(self, self.model.ressourceManager)
             self.menu.place(relx=1, rely=0, anchor=tk.NE)
             self.menu.lift()
 
     def addFlag(self, event):
-        self.flagPath.append(model.Flag((event.x,event.y)))
-        self.map.refresh()
+        self.flagPath.append((event.x,event.y))
+        self.model.changeFlags(self.flagPath)
 
     def initMap(self):
-        self.map = mapView(self)
+        self.map = mapView(self, self.model.ressourceManager)
         self.map.bind("<Button-1>", self.addFlag)
+
     def wipeFlag(self, event):
-        self.flagPath = []
-        self.map.refresh()
+        self.model.changeFlags([])
 
     def displayMap(self):
         if (self.map):
@@ -118,8 +98,6 @@ class Application(tk.Tk):
             self.initMap()
             self.map.place(anchor=tk.NW)
 
-
-app = Application()
 
 
 

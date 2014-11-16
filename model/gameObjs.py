@@ -27,7 +27,7 @@ class Missile(GameObject):
 
     def nextMove(self):
         if(self.target.exists and self.exists):
-            if(self.squareCollide(self, self.target)):
+            if(squareCollide(self, self.target)):
                 self.target.hit(dmg)
                 self.exists = False
             else:
@@ -44,6 +44,7 @@ class Missile(GameObject):
 class Flag(GameObject):
     def __init__(self, pos=(-1, -1)):
         super(Flag, self).__init__(pos)
+        self.ressId = 4
 
 
 class FlagPath(object):
@@ -79,7 +80,7 @@ class Troop(Missile):
 class EnnemyBase(GameObject):
     def __init__(self, pos, lifePoints):
         super(EnnemyBase, self).__init__(pos)
-        self.lifePoints -= lifePoints
+        self.lifePoints = lifePoints
 
     def hit(self, qty):
         self.lifePoints -= qty

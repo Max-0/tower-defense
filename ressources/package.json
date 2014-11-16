@@ -1,0 +1,29 @@
+{
+	"data":
+	[
+		{
+			"id" : 0,
+			"path" : "bullet"
+		},
+		{
+			"id" : 1,
+			"path" : "tower"
+		},
+		{
+			"id" : 2,
+			"path" : "troop"
+		},
+		{
+			"id" : 3,
+			"path" : "base"
+		},
+		{
+			"id" : 4,
+			"path" : "flag"
+		},
+		{
+			"id" : 5,
+			"path" : "clearButton"
+		}
+	]
+}

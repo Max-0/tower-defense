@@ -13,7 +13,7 @@ class MissileFactory(object):
 		self.missileList = missileList
 
 	def new(self, start, target):
-		self.missileList.append(self.missileType(self.dmg, self.target, self.maxSpeed, start.pos))
+		self.missileList.append(self.missileType(self.dmg, target, self.maxSpeed, start))
 		self.missileList[-1].ressId = self.ressId
 		self.missileList[-1].size = self.size
 
@@ -47,7 +47,7 @@ class TroopFactory(object):
 		self.troopList = troopList
 
 	def new(self, at):
-		self.troopList.append(troopList(self.flagPath, self.dmg, self.maxSpeed, at))
-		self.troopList[-1].ressId = ressId
+		self.troopList.append(self.troopType(self.flagPath, self.dmg, self.maxSpeed, at))
+		self.troopList[-1].ressId = self.ressId
 		self.troopList[-1].size = self.size
 
