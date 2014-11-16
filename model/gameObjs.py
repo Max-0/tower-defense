@@ -12,7 +12,7 @@ class Tower(GameObject):
             self.lastFire = time.time()
 
     def canShoot(self, target):
-        return time.time() - self.lastFire < firerate and distance(target.pos, self.pos) < range
+        return time.time() - self.lastFire < self.firerate and distance(target.pos, self.pos) < self.range
 
     def shoot(self):
         missileFactory.new(self, target)
@@ -24,6 +24,7 @@ class Missile(GameObject):
         super(Missile, self).__init__(pos)
         self.dmg = dmg
         self.target = target
+        self.maxSpeed = maxSpeed
 
     def nextMove(self):
         if(self.target.exists and self.exists):
@@ -31,13 +32,12 @@ class Missile(GameObject):
                 self.target.hit(dmg)
                 self.exists = False
             else:
-                self.speed = normalizeSpeed(getDir(self.pos, target.pos), self.maxSpeed)
+                self.speed = normalizeSpeed(getDir(self.pos, self.target.pos), self.maxSpeed)
         else:
             self.exists = False
 
     def move(self):
-        self.pos[0] += self.speed[0]
-        self.pos[1] += self.speed[1]
+        self.pos = (self.pos[0] + self.speed[0], self.pos[1] + self.speed[1])
 
 
 
@@ -55,27 +55,33 @@ class FlagPath(object):
 
 class Troop(Missile):
     def __init__(self, flagPath, dmg, maxSpeed, finalTarget, pos = (-1, -1)):
-        super(Missile, self).__init__(dmg, None, maxSpeed, pos)
+        super(Troop, self).__init__(dmg, None, maxSpeed, pos)
         self.flagPath = flagPath
         self.finalTarget = finalTarget
         self.actFlag = 0
+        self.nextTarget()
 
     def nextTarget(self):
-        if(self.actFlag < len(self.flagPath.l)):
+        if(self.actFlag < len(self.flagPath.l)-1):
             self.actFlag += 1
             self.target = self.flagPath.l[self.actFlag]
+        else:
+            self.target = self.finalTarget
 
     def nextMove(self):
         if(self.exists and self.target.exists):
-            if(self.squareCollide(self, self.target)):
+            if(squareCollide(self, self.target)):
                 if(self.actFlag == len(self.flagPath.l)):
                     self.target.hit(dmg)
                     self.exists = False
                 else:
                     self.nextTarget()
-            self.speed = normalizeSpeed(getDir(self.pos, target.pos), self.maxSpeed)
+            self.speed = normalizeSpeed(getDir(self.pos, self.target.pos), self.maxSpeed)
         else:
             self.exists = False
+
+    def move(self):
+        self.pos = (self.pos[0] + self.speed[0], self.pos[1] + self.speed[1])
 
 class EnnemyBase(GameObject):
     def __init__(self, pos, lifePoints):

@@ -7,7 +7,6 @@ ressourcesPath = currentDir + "/ressources/"
 def getJsonRessource(ressource):
     json_data=open(ressourcesPath+ressource+".json")
     data = json.load(json_data)
-    print(data)
     json_data.close()
     return (data)
     

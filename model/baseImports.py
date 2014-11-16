@@ -2,16 +2,12 @@ import time
 import json
 import tkinter as tk
 import random
-
+import pdb
 
 def distance(a, b):
 	return ((a[0]-b[0])**2 + (a[1]-b[1])**2)**(1/2)
 
 def squareCollide(a, b):
-	print("a")
-	print(a.pos)
-	print("b")
-	print(b.pos)
 	return not (b.pos[0] + b.size[0] < a.pos[0] or
 	   			b.pos[0 > a.pos[0] + a.size[0]] or
 	   			b.pos[1] + b.size[1] < a.pos[1] or

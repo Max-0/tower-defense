@@ -1,16 +1,25 @@
 from model.factory import *
 
 
+def formatSize(s):
+	ret = s
+	ret = ret.replace(" ", "")
+	ret = ret.replace("(", "")
+	ret = ret.replace(")", "")
+	ret = ret.split(",")
+	return (int(ret[0]), int(ret[1]))
+
+
 def loadTowers(path, towers, towerFactories, missileFactories):
 	data = open(path)
 	towersData = json.load(data)
 	for k in towersData.keys():
 		towerFactories[k] = TowerFactory(towersData[k]["range"],
 								 towersData[k]["firerate"],
-								 missileTypes[towersData[k]["missiletype"]],
+								 missileFactories[towersData[k]["missiletype"]],
 								 towers,
 								 towersData[k]["ressId"],
-								 towersData[k]["size"])
+								 formatSize(towersData[k]["size"]))
 	data.close()
 
 def loadMissiles(path, missiles, missileFactories):
@@ -21,18 +30,19 @@ def loadMissiles(path, missiles, missileFactories):
 									 missilesData[k]["maxspeed"],
 									 missiles,
 									 missilesData[k]["ressId"],
-									 missilesData[k]["size"])
+									 formatSize(missilesData[k]["size"]))
 	data.close()
 
 
-def loadTroops(path, troops, troopFactories):
+def loadTroops(path, troops, troopFactories, finalTarget):
 	data = open(path)
 	troopsData = json.load(data)
 	for k in troopsData.keys():
 		troopFactories[k] = TroopFactory(FlagPath(),
+								 finalTarget,
 							     troopsData[k]["dmg"],
 								 troopsData[k]["maxspeed"],
 								 troops,
 								 troopsData[k]["ressId"],
-								 troopsData[k]["size"])
+								 formatSize(troopsData[k]["size"]))
 	data.close()

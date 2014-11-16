@@ -14,7 +14,7 @@ class MissileFactory(object):
 	def new(self, start, target):
 		self.missileList.append(Missile(self.dmg, target, self.maxSpeed, start))
 		self.missileList[-1].ressId = self.ressId
-		self.missileList[-1].size = self.size
+		self.missileList[-1].size = self.size		
 
 
 class TowerFactory(object):
@@ -24,7 +24,7 @@ class TowerFactory(object):
 		self.firerate = firerate
 		self.missileFactory = missileFactory
 		self.ressId = ressId
-		self.size = size.split("(, ")
+		self.size = size
 		self.towerList = towerList
 
 	def new(self, at):
@@ -34,7 +34,7 @@ class TowerFactory(object):
 
 
 class TroopFactory(object):
-	def __init__(self, flagPath, dmg, maxSpeed, troopList, ressId, size):
+	def __init__(self, flagPath, finalTarget, dmg, maxSpeed, troopList, ressId, size):
 		super(object, self).__init__()
 		self.flagPath = flagPath
 		self.dmg = dmg
@@ -42,9 +42,10 @@ class TroopFactory(object):
 		self.ressId = ressId
 		self.size = size
 		self.troopList = troopList
+		self.finalTarget = finalTarget
 
 	def new(self, at):
-		self.troopList.append(Troop(self.flagPath, self.dmg, self.maxSpeed, at))
+		self.troopList.append(Troop(self.flagPath, self.dmg, self.maxSpeed, self.finalTarget, at))
 		self.troopList[-1].ressId = self.ressId
 		self.troopList[-1].size = self.size
 

@@ -2,6 +2,10 @@
 	"data":
 	[
 		{
+			"id" : -1,
+			"path" : "errors"
+		},
+		{
 			"id" : 0,
 			"path" : "bullet"
 		},

@@ -20,7 +20,7 @@ class RessourceManager(object):
 
 	def loadRessources(self, ressourcesFile):
 		for ress in ressourcesFile:
-			if(ress["id"] != "default"):
+			if(ress["id"] != -1):
 				self.ressTable[ress["id"]] = Ressources(ress["path"])
 			else:
 				self.defaultImg = Ressources(ress["path"])

@@ -2,33 +2,24 @@ from model.loaders import *
 
 
 class Model(object):
-	def __init__(self):
-		self.towers, self.towerTypes, self.towerFactories = [], {"base": Tower}, {}
-		self.missiles, self.missileTypes, self.missileFactories = [], {"base": Missile}, {}
-		self.troops, self.troopTypes, self.troopFactories = [], {"base": Troop}, {}
+	def __init__(self, path):
+		self.towers, self.towerFactories = [], {}
+		self.missiles, self.missileFactories = [], {}
+		self.troops, self.troopFactories = [], {}
 		self.ennemyBase = EnnemyBase((0, 0), 500)
-
-
-		
-		self.missiles = loadMissiles(config.getUrlRessource("missiles.json"),
-					 self.missileFactories, self.missileTypes)
-
-
-		self.towers = loadTowers(config.getUrlRessource("towers.json"),
-				   self.towerFactories, self.towerTypes, self.missileTypes)
-
-
-
-		self.troops  = loadTroops(config.getUrlRessource("troops.json"),
-				   self.troopFactories, self.troopTypes)
-
-
-
+		self.ennemyBase.ressId = 3
+		self.ennemyBase.size = (40, 40)
+		loadMissiles(config.getUrlRessource("missiles.json"),
+					 self.missiles, self.missileFactories)
+		loadTowers(config.getUrlRessource("towers.json"),
+				   self.towers, self.towerFactories, self.missileFactories)
+		loadTroops(config.getUrlRessource("troops.json"),
+				   self.troops, self.troopFactories, self.ennemyBase)
 		self.ressourceManager = RessourceManager(config.getUrlRessource("package.json"))
 		self.flags = FlagPath()
 
 	def getGameObjects(self):
-		return self.towers + self.missiles + self.troops + self.flags.l + list(ennemyBase)
+		return self.towers + self.missiles + self.troops + [self.ennemyBase] + self.flags.l
 
 	def newRandomTower(self, maxX, maxY):
 		randomElem(self.towerFactories).new(randomCoord(maxX, maxY))
@@ -59,17 +50,17 @@ class Model(object):
 				m += 1
 		t = 0
 		while( t < len(self.troops)):
-			t.nextMove()
+			self.troops[t].nextMove()
+			self.troops[t].move()
 			if(not self.troops[t].exists):
 				del self.troops[t]
 			else:
 				t += 1
-				t = 0
+		t = 0
 		while( t < len(self.towers)):
 			for target in self.troops:
 				if(self.towers[t].canShoot(target)):
 					self.towers[t].shoot(target)
-			t.nextMove()
 			if(not self.towers[t].exists):
 				del self.towers[t]
 			else:

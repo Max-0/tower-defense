@@ -3,7 +3,7 @@
 			"type" : "base",
 			"range" : 3,
 			"firerate" : 400,
-			"missiletype" : "base",
+			"missiletype" : "fast",
 			"ressId" : 1,
 			"size" : "(40, 40)"
 		 },
@@ -11,7 +11,7 @@
 			"type" : "base",
 			"range" : 9,
 			"firerate" : 800,
-			"missiletype" : "base",
+			"missiletype" : "slow",
 			"ressId" : 1,
 			"size" : "(40, 40)"
 		 }
