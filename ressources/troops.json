@@ -4,13 +4,13 @@
 			"dmg" : 100,
 			"maxspeed" : 15,
 			"ressId" : 2,
-			"size" : "(40, 40)"
+			"size" : "(20, 20)"
 		 },
 	"slow" : {
 			"type" : "base",
 			"dmg" : "300",
 			"maxspeed" : 5,
 			"ressId" : 2,
-			"size" : "(40, 40)"
+			"size" : "(20, 20)"
 		 }
 }

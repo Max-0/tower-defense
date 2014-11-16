@@ -16,7 +16,7 @@ class MainController(object):
 		self.view.mainloop()
 
 	def test(self):
-		self.model.changeFlags([(500, 500)])
+		self.model.changeFlags([(1000, 1000), (500, 500)])
 		self.model.newRandomTower(1000, 1000)
 		self.model.newRandomTroop(1000, 1000)
 		self.model.newRandomMissile(1000, 1000, self.model.troops[0])

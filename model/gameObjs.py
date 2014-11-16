@@ -29,7 +29,7 @@ class Missile(GameObject):
     def nextMove(self):
         if(self.target.exists and self.exists):
             if(squareCollide(self, self.target)):
-                self.target.hit(dmg)
+                self.target.hit(self.dmg)
                 self.exists = False
             else:
                 self.speed = normalizeSpeed(getDir(self.pos, self.target.pos), self.maxSpeed)
@@ -45,6 +45,7 @@ class Flag(GameObject):
     def __init__(self, pos=(-1, -1)):
         super(Flag, self).__init__(pos)
         self.ressId = 4
+        self.size = (10, 10)
 
 
 class FlagPath(object):
@@ -71,8 +72,8 @@ class Troop(Missile):
     def nextMove(self):
         if(self.exists and self.target.exists):
             if(squareCollide(self, self.target)):
-                if(self.actFlag == len(self.flagPath.l)):
-                    self.target.hit(dmg)
+                if(self.target is self.finalTarget):
+                    self.target.hit(self.dmg)
                     self.exists = False
                 else:
                     self.nextTarget()

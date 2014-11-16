@@ -8,10 +8,10 @@ def distance(a, b):
 	return ((a[0]-b[0])**2 + (a[1]-b[1])**2)**(1/2)
 
 def squareCollide(a, b):
-	return not (b.pos[0] + b.size[0] < a.pos[0] or
-	   			b.pos[0 > a.pos[0] + a.size[0]] or
-	   			b.pos[1] + b.size[1] < a.pos[1] or
-	   			b.pos[1] > a.pos[1] + a.size[1])
+	return not (b.pos[0] + b.size[0] < a.pos[0] or #B trop a gauche
+	   			b.pos[0] > a.pos[0] + a.size[0] or #B trop a droite
+	   			b.pos[1] + b.size[1] < a.pos[1] or #B trop a dessus
+	   			b.pos[1] > a.pos[1] + a.size[1])   #B trop en dessus
 
 def normalizeSpeed(dir, maxSpeed):
 	return (dir[0]/distance((0,  0), dir) * maxSpeed, dir[1]/distance((0,  0), dir) * maxSpeed)
