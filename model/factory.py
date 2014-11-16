@@ -2,9 +2,8 @@ from model.gameObjs import *
 
 
 class MissileFactory(object):
-	def __init__(self, missileType, dmg, maxSpeed, missileList, ressId, size):
+	def __init__(self, dmg, maxSpeed, missileList, ressId, size):
 		super(object, self).__init__()
-		self.missileType = missileType
 		self.dmg = dmg
 		self.maxSpeed = maxSpeed
 		self.missileList = missileList
@@ -13,15 +12,14 @@ class MissileFactory(object):
 		self.missileList = missileList
 
 	def new(self, start, target):
-		self.missileList.append(self.missileType(self.dmg, target, self.maxSpeed, start))
+		self.missileList.append(Missile(self.dmg, target, self.maxSpeed, start))
 		self.missileList[-1].ressId = self.ressId
 		self.missileList[-1].size = self.size
 
 
 class TowerFactory(object):
-	def __init__(self, towerType, range, firerate, missileFactory, towerList, ressId, size):
+	def __init__(self, range, firerate, missileFactory, towerList, ressId, size):
 		super(object, self).__init__()
-		self.towerType = towerType
 		self.range = range
 		self.firerate = firerate
 		self.missileFactory = missileFactory
@@ -30,15 +28,14 @@ class TowerFactory(object):
 		self.towerList = towerList
 
 	def new(self, at):
-		self.towerList.append(self.towerType(self.range, self.firerate, self.missileFactory, at))
+		self.towerList.append(Tower(self.range, self.firerate, self.missileFactory, at))
 		self.towerList[-1].ressId = self.ressId
 		self.towerList[-1].size = self.size
 
 
 class TroopFactory(object):
-	def __init__(self, troopType, flagPath, dmg, maxSpeed, troopList, ressId, size):
+	def __init__(self, flagPath, dmg, maxSpeed, troopList, ressId, size):
 		super(object, self).__init__()
-		self.troopType = troopType
 		self.flagPath = flagPath
 		self.dmg = dmg
 		self.maxSpeed = maxSpeed
@@ -47,7 +44,7 @@ class TroopFactory(object):
 		self.troopList = troopList
 
 	def new(self, at):
-		self.troopList.append(self.troopType(self.flagPath, self.dmg, self.maxSpeed, at))
+		self.troopList.append(Troop(self.flagPath, self.dmg, self.maxSpeed, at))
 		self.troopList[-1].ressId = self.ressId
 		self.troopList[-1].size = self.size
 
