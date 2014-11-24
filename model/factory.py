@@ -34,7 +34,7 @@ class TowerFactory(object):
 
 
 class TroopFactory(object):
-	def __init__(self, flagPath, finalTarget, dmg, maxSpeed, troopList, ressId, size):
+	def __init__(self, flagPath, finalTarget, dmg, maxSpeed, troopList, ressId, size, maxLife):
 		super(object, self).__init__()
 		self.flagPath = flagPath
 		self.dmg = dmg
@@ -43,9 +43,12 @@ class TroopFactory(object):
 		self.size = size
 		self.troopList = troopList
 		self.finalTarget = finalTarget
+		self.lifePoints = maxLife
 
 	def new(self, at):
 		self.troopList.append(Troop(self.flagPath, self.dmg, self.maxSpeed, self.finalTarget, at))
 		self.troopList[-1].ressId = self.ressId
 		self.troopList[-1].size = self.size
+		self.troopList[-1].maxLifePoints = self.lifePoints
+		self.troopList[-1].lifePoints = self.lifePoints
 

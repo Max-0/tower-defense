@@ -44,5 +44,6 @@ def loadTroops(path, troops, troopFactories, finalTarget):
 								 troopsData[k]["maxspeed"],
 								 troops,
 								 troopsData[k]["ressId"],
-								 formatSize(troopsData[k]["size"]))
+								 formatSize(troopsData[k]["size"]),
+								 troopsData[k]["lifepoints"])
 	data.close()

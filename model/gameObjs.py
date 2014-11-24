@@ -107,6 +107,11 @@ class Troop(Missile):
     def move(self):
         self.pos = (self.pos[0] + self.speed[0], self.pos[1] + self.speed[1])
 
+    def hit(self, qty):
+        self.lifePoints -= qty
+        if(self.lifePoints <= 0):
+            self.exists = False
+
     def __str__(self):
         res = "Troop " + str(self.id) + " : \n" + \
               "    flag path " + indentRepr(str(self.flagPath)) + \

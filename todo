@@ -9,16 +9,11 @@ v
 				TODO Code
 ###############################################################################
 
--gérer points de vie des troupes (à l'initialisations et à la mort)
-
 -préparer le code pour permettre de complexifier les objets 
 	(plusieurs missiles par tour par exemple)
 
 -créer des objets pour les effets spéciaux 
 	(ralentissement, empoisonnement, dégats de zone, etc..)
-
--trouver de jolis sprites pour les tests (j'ai mal aux yeux à chaque fois)
-
 -un peu de refactoring 
 	-inclusions de codes
 	-références vers le modèle redondantes
@@ -31,6 +26,9 @@ v
 ###############################################################################
 				TODO Game Design
 ###############################################################################
+
+-trouver de jolis sprites pour les tests (j'ai mal aux yeux à chaque fois)
+
 
 -garder le comportement des missiles ou changer? (tête chercheuses vs 
 						  tir anticipé)
