@@ -14,6 +14,7 @@ v
 
 -créer des objets pour les effets spéciaux 
 	(ralentissement, empoisonnement, dégats de zone, etc..)
+
 -un peu de refactoring 
 	-inclusions de codes
 	-références vers le modèle redondantes
