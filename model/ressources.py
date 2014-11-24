@@ -1,5 +1,4 @@
 from model.baseImports import *
-import config
 
 
 class Ressources(object):
@@ -29,5 +28,5 @@ class RessourceManager(object):
 		if(id in self.ressTable):
 			return self.ressTable[id]
 		else:
-			print("unloaded ressource : "+str(id))
+			gameLogger.log("errors", "unloaded ressource : "+str(id))
 			return self.defaultImg

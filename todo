@@ -8,6 +8,8 @@
 
 -identifier chaque objets formellement (id+type+état)
 
+-gérer points de vie des troupes (à l'initialisations et à la mort)
+
 -préparer le code pour permettre de complexifier les objets 
 	(plusieurs missiles par tour par exemple)
 
@@ -22,6 +24,10 @@
 	-commentaires (docstring? genre léger parce que la 
 	 c'est facile mais ca va pas le rester)
 	
+
+-gérer les collisions de troupes
+
+
 ###############################################################################
 				TODO Game Design
 ###############################################################################

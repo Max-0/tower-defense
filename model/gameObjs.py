@@ -87,6 +87,7 @@ class EnnemyBase(GameObject):
     def __init__(self, pos, lifePoints):
         super(EnnemyBase, self).__init__(pos)
         self.lifePoints = lifePoints
+        self.maxLifePoints = lifePoints
 
     def hit(self, qty):
         self.lifePoints -= qty
