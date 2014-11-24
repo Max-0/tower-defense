@@ -1,15 +1,15 @@
-2014-11-24 15:44:00.911614:
+2014-11-24 16:13:54.258503:
     #########################################################
                              started
     #########################################################
     
-2014-11-24 15:44:01.245293:
+2014-11-24 16:13:54.588109:
     Tower 4 :
         range 1000
         fire rate 1000
-        last fire 1416840241244.6365
+        last fire 1416842034587.4736
         GameObject 4 : 
-            Position (622, 23)
+            Position (163, 415)
             Vitesse (0, 0)
             Existe True
             Taille (50, 90)
@@ -19,9 +19,9 @@
     Tower 5 :
         range 500
         fire rate 500
-        last fire 1416840241244.6794
+        last fire 1416842034587.5176
         GameObject 5 : 
-            Position (298, 186)
+            Position (1045, 320)
             Vitesse (0, 0)
             Existe True
             Taille (50, 90)
@@ -33,7 +33,7 @@
         max speed 3
         targetId 6
         GameObject 7 : 
-            Position (543, 22)
+            Position (199, 241)
             Vitesse (0, 0)
             Existe True
             Taille (53, 17)
@@ -72,7 +72,7 @@
                     Points de vie 0/0
                 
             
-            <model.gameObjs.FlagPath object at 0xb60eb38c>
+            <model.gameObjs.FlagPath object at 0xb60eb04c>
         
         finalTarget     EnnemyBase 0 
             GameObject 0 : 
@@ -86,11 +86,11 @@
         
         actFlagIndex 0
         Missile 6 : 
-            dammages 300
-            max speed 2
+            dammages 100
+            max speed 5
             targetId 1
             GameObject 6 : 
-                Position (32, 373)
+                Position (161, 257)
                 Vitesse (0, 0)
                 Existe True
                 Taille (50, 41)

@@ -42,6 +42,7 @@ class Model(object):
 	def update(self):
 		m=0
 		while(m < len(self.missiles)):
+			self.missiles[m].refreshBuffs()
 			self.missiles[m].nextMove()
 			self.missiles[m].move()
 			if(not self.missiles[m].exists):
@@ -50,6 +51,7 @@ class Model(object):
 				m += 1
 		t = 0
 		while( t < len(self.troops)):
+			self.troops[t].refreshBuffs()
 			self.troops[t].nextMove()
 			self.troops[t].move()
 			if(not self.troops[t].exists):
@@ -58,6 +60,7 @@ class Model(object):
 				t += 1
 		t = 0
 		while( t < len(self.towers)):
+			self.towers[t].refreshBuffs()
 			for target in self.troops:
 				if(self.towers[t].canShoot(target)):
 					self.towers[t].shoot(target)

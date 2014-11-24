@@ -1,4 +1,5 @@
 import time
+from model.buffs import *
 import datetime
 import json
 import tkinter as tk
@@ -6,6 +7,8 @@ import random
 import pdb
 import atexit
 import config
+
+
 
 
 def distance(a, b):
@@ -126,9 +129,14 @@ class GameObject(object):
 		self.lifePoints = 0
 		self.maxLifePoints = 0
 		self.id = gameIdDispatcher.getNewId()
+		self.buffs = []
 
 	def hit(self, qty):
 		pass
+
+	def addBuff(self, buff):
+		self.buffs.append(buff)
+		buff.apply(self)
 
 	def __str__(self):
 		res = "GameObject "+str(self.id)+" : \n" + \
@@ -139,3 +147,13 @@ class GameObject(object):
 			  "    RessId " + str(self.ressId) + "\n" + \
 			  "    Points de vie " + str(self.lifePoints) + "/" +str(self.maxLifePoints) + "\n"
 		return res
+
+	def refreshBuffs(self):
+		i = 0
+		while(i < len(self.buffs)):
+			if(not self.buffs[i].isDone):
+				self.buffs[i].apply(self)
+				i += 1
+			else:
+				self.buffs[i].remove(self)
+				del self.buffs[i]
