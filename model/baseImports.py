@@ -35,6 +35,11 @@ def randomCoord(maxX, maxY, minX=0, minY=0):
 	return (random.randint(minX, maxX), random.randint(minY, maxY))
 
 
+programStartedToken = "#########################################################\n"+\
+					  "                         started\n" + \
+                      "#########################################################\n"
+
+
 class GameLog(object):
 	#design pattern singleton
     class __GameLog(object):
@@ -56,6 +61,8 @@ class GameLog(object):
             GameLog.logs = {}
             for log in logList:
             	GameLog.logs[log[0]] = GameLog.__GameLog(open(config.currentDir+"/"+log[1], 'a'))
+            for log in GameLog.logs.keys():
+            	GameLog.logs[log].log(programStartedToken)
 
     def clean(self):
     	for log in GameLog.logs.keys():

@@ -71,3 +71,7 @@ class Model(object):
 		for key in self.troopFactories.keys():
 			self.troopFactories[key].flagPath = newPath
 		self.flags = newPath
+
+	def logModelState(self):
+		state = "".join([str(i) for i in self.getGameObjects()])
+		gameLogger.log("general", state)

@@ -18,6 +18,14 @@ class Tower(GameObject):
         self.lastFire = time.time()*1000.0
 
 
+    def __str__(self):
+        res = "Tower " + str(self.id) + " :\n" + \
+              "    range " + str(self.range) + "\n" + \
+              "    fire rate " + str(self.firerate) + "\n" + \
+              "    last fire " + str(self.lastFire) + "\n"
+        return res + indentRepr(super(Tower, self).__str__())
+
+
 class Missile(GameObject):
     def __init__(self, dmg, target, maxSpeed, pos=(-1, -1)):
         super(Missile, self).__init__(pos)
@@ -38,6 +46,12 @@ class Missile(GameObject):
     def move(self):
         self.pos = (self.pos[0] + self.speed[0], self.pos[1] + self.speed[1])
 
+    def __str__(self):
+        res = "Missile " + str(self.id) + " : \n" + \
+              "    dammages " + str(self.dmg) + "\n" + \
+              "    max speed " + str(self.maxSpeed) + "\n" + \
+              "    targetId " + str(self.target.id) + "\n"
+        return res+indentRepr(super(Missile, self).__str__())
 
 
 class Flag(GameObject):
@@ -46,11 +60,21 @@ class Flag(GameObject):
         self.ressId = 4
         self.size = (10, 10)
 
+    def __str__(self):
+        res = "Flag " + str(self.id) + " : \n"
+        return res + indentRepr(super(Flag, self).__str__())
+
 
 class FlagPath(object):
     def __init__(self, arg=[]):
         super(object, self).__init__()
         self.l = [Flag(i) for i in arg]
+
+    def __str__(self):
+        res = "FlagPath : \n"
+        for flag in self.l:
+            res += indentRepr(str(flag))
+        return res + indentRepr(super(FlagPath, self).__str__())
 
 
 class Troop(Missile):
@@ -83,6 +107,13 @@ class Troop(Missile):
     def move(self):
         self.pos = (self.pos[0] + self.speed[0], self.pos[1] + self.speed[1])
 
+    def __str__(self):
+        res = "Troop " + str(self.id) + " : \n" + \
+              "    flag path " + indentRepr(str(self.flagPath)) + \
+              "    finalTarget " + indentRepr(str(self.finalTarget)) + \
+              "    actFlagIndex " + str(self.actFlag) + "\n"
+        return res + indentRepr(super(Troop, self).__str__())
+
 class EnnemyBase(GameObject):
     def __init__(self, pos, lifePoints):
         super(EnnemyBase, self).__init__(pos)
@@ -93,3 +124,6 @@ class EnnemyBase(GameObject):
         self.lifePoints -= qty
         if(self.lifePoints <= 0):
             self.exists = False
+    def __str__(self):
+        res = "EnnemyBase " + str(self.id) + " \n"
+        return res + indentRepr(super(EnnemyBase, self).__str__())

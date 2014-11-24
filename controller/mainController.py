@@ -21,6 +21,7 @@ class MainController(object):
 		self.model.newRandomTower(1000, 1000)
 		self.model.newRandomTroop(1000, 1000)
 		self.model.newRandomMissile(1000, 1000, self.model.troops[0])
+		self.model.logModelState()
 
 
 	def loop(self):
