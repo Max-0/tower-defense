@@ -8,7 +8,7 @@ class Model(object):
 		self.troops, self.troopFactories = [], {}
 		self.ennemyBase = EnnemyBase((0, 0), 500)
 		self.ennemyBase.ressId = 3
-		self.ennemyBase.size = (40, 40)
+		self.ennemyBase.size = (208, 216)
 		loadMissiles(config.getUrlRessource("missiles.json"),
 					 self.missiles, self.missileFactories)
 		loadTowers(config.getUrlRessource("towers.json"),

@@ -1,30 +1,30 @@
-2014-11-24 14:38:39.539325:
+2014-11-24 15:44:00.911614:
     #########################################################
                              started
     #########################################################
     
-2014-11-24 14:38:39.863153:
+2014-11-24 15:44:01.245293:
     Tower 4 :
         range 1000
         fire rate 1000
-        last fire 1416836319862.5696
+        last fire 1416840241244.6365
         GameObject 4 : 
-            Position (349, 281)
+            Position (622, 23)
             Vitesse (0, 0)
             Existe True
-            Taille (60, 60)
+            Taille (50, 90)
             RessId 1
             Points de vie 0/0
         
     Tower 5 :
         range 500
         fire rate 500
-        last fire 1416836319862.6077
+        last fire 1416840241244.6794
         GameObject 5 : 
-            Position (942, 86)
+            Position (298, 186)
             Vitesse (0, 0)
             Existe True
-            Taille (60, 60)
+            Taille (50, 90)
             RessId 1
             Points de vie 0/0
         
@@ -33,10 +33,10 @@
         max speed 3
         targetId 6
         GameObject 7 : 
-            Position (869, 599)
+            Position (543, 22)
             Vitesse (0, 0)
             Existe True
-            Taille (5, 5)
+            Taille (53, 17)
             RessId 0
             Points de vie 0/0
         
@@ -72,28 +72,28 @@
                     Points de vie 0/0
                 
             
-            <model.gameObjs.FlagPath object at 0xb606096c>
+            <model.gameObjs.FlagPath object at 0xb60eb38c>
         
         finalTarget     EnnemyBase 0 
             GameObject 0 : 
                 Position (0, 0)
                 Vitesse (0, 0)
                 Existe True
-                Taille (40, 40)
+                Taille (208, 216)
                 RessId 3
                 Points de vie 500/500
             
         
         actFlagIndex 0
         Missile 6 : 
-            dammages 100
-            max speed 5
+            dammages 300
+            max speed 2
             targetId 1
             GameObject 6 : 
-                Position (58, 234)
+                Position (32, 373)
                 Vitesse (0, 0)
                 Existe True
-                Taille (20, 20)
+                Taille (50, 41)
                 RessId 2
                 Points de vie 200/200
             
@@ -103,7 +103,7 @@
             Position (0, 0)
             Vitesse (0, 0)
             Existe True
-            Taille (40, 40)
+            Taille (208, 216)
             RessId 3
             Points de vie 500/500
         

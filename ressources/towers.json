@@ -5,7 +5,7 @@
 			"firerate" : 500,
 			"missiletype" : "fast",
 			"ressId" : 1,
-			"size" : "(60, 60)"
+			"size" : "(50, 90)"
 		 },
 	"slow" : {
 			"type" : "base",
@@ -13,6 +13,6 @@
 			"firerate" : 1000,
 			"missiletype" : "slow",
 			"ressId" : 1,
-			"size" : "(60, 60)"
+			"size" : "(50, 90)"
 		 }
 }

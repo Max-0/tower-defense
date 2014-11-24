@@ -4,7 +4,7 @@
 			"dmg" : 100,
 			"maxspeed" : 5,
 			"ressId" : 2,
-			"size" : "(20, 20)",
+			"size" : "(50, 41)",
 			"lifepoints" : 200
 		 },
 	"slow" : {
@@ -12,7 +12,7 @@
 			"dmg" : 300,
 			"maxspeed" : 2,
 			"ressId" : 2,
-			"size" : "(20, 20)",
+			"size" : "(50, 41)",
 			"lifepoints" : 200
 		 }
 }

@@ -53,7 +53,7 @@ class mapView(tk.Canvas):
 
     def displayObjects(self, objects):
         for obj in objects:
-            self.create_image((obj.pos[0], obj.pos[1]), image=self.ressourceManager.getRessource(obj.ressId).photo)
+            self.create_image((obj.pos[0], obj.pos[1]), image=self.ressourceManager.getRessource(obj.ressId).photo, anchor=tk.NW)
 
 class Application(tk.Tk):
     def __init__(self):

@@ -16,7 +16,7 @@ v
 	(ralentissement, empoisonnement, dégats de zone, etc..)
 
 -un peu de refactoring 
-	-inclusions de codes
+	-inclusions de code redondantes
 	-références vers le modèle redondantes
 	-commentaires (docstring? genre léger parce que la 
 	 c'est facile mais ca va pas le rester)
