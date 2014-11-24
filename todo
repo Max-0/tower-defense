@@ -1,12 +1,15 @@
+
+^
+|	plus urgent
+
+|	moins urgent
+v
+
 ###############################################################################
 				TODO Code
 ###############################################################################
 
--ajouter eventlistener pour chaque game Object afin de débugger plus 
-	rapidement/facilement (permettre de logger le déroulement 
-	de la partie)
-
--identifier chaque objets formellement (id+type+état)
+-corriger bugs flagpath
 
 -gérer points de vie des troupes (à l'initialisations et à la mort)
 
@@ -23,7 +26,6 @@
 	-références vers le modèle redondantes
 	-commentaires (docstring? genre léger parce que la 
 	 c'est facile mais ca va pas le rester)
-	
 
 -gérer les collisions de troupes
 
@@ -41,14 +43,6 @@
 	-agencement zone de jeu/menu/contrôles en jeu
 	-feedback utilisateur (je gagne ou je perds la?)
 
-
--choisir un thème
-	-p.e. atttaque d'un village médiéval
-	-sci-fi classique
-	----je me suis dis que vu le game design actuel ou pourrait choisir un
-	----thème plus original du style on essaye de faire s'échapper des
-	----gens plutot que d'attaquer une base
-
 -tour plus complexes
 	-effets de zones
 	-plusieurs missiles
@@ -61,5 +55,13 @@
 -permettre à l'utilisateur d'agir directement sur la partie
 	-bombes
 	-boost de vitesse par zone/unitées
+
+-choisir un thème
+	-p.e. atttaque d'un village médiéval
+	-sci-fi classique
+	----je me suis dis que vu le game design actuel ou pourrait choisir un
+	----thème plus original du style on essaye de faire s'échapper des
+	----gens plutot que d'attaquer une base
+
 
 
