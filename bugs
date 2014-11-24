@@ -1,0 +1,2 @@
+-Les troupes ignorent complétement le premier flag
+-si changement de flag, les nouvelles troupes considèrent le dernier flag comme cible finale (ne vont pas jusqu'à la base)

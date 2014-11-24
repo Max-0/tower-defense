@@ -1,0 +1,59 @@
+###############################################################################
+				TODO Code
+###############################################################################
+
+-ajouter eventlistener pour chaque game Object afin de débugger plus 
+	rapidement/facilement (permettre de logger le déroulement 
+	de la partie)
+
+-identifier chaque objets formellement (id+type+état)
+
+-préparer le code pour permettre de complexifier les objets 
+	(plusieurs missiles par tour par exemple)
+
+-créer des objets pour les effets spéciaux 
+	(ralentissement, empoisonnement, dégats de zone, etc..)
+
+-trouver de jolis sprites pour les tests (j'ai mal aux yeux à chaque fois)
+
+-un peu de refactoring 
+	-inclusions de codes
+	-références vers le modèle redondantes
+	-commentaires (docstring? genre léger parce que la 
+	 c'est facile mais ca va pas le rester)
+	
+###############################################################################
+				TODO Game Design
+###############################################################################
+
+-garder le comportement des missiles ou changer? (tête chercheuses vs 
+						  tir anticipé)
+
+-interface utilisateur
+	-choix des troupes
+	-organisation de vagues? (O/N)
+	-agencement zone de jeu/menu/contrôles en jeu
+	-feedback utilisateur (je gagne ou je perds la?)
+
+
+-choisir un thème
+	-p.e. atttaque d'un village médiéval
+	-sci-fi classique
+	----je me suis dis que vu le game design actuel ou pourrait choisir un
+	----thème plus original du style on essaye de faire s'échapper des
+	----gens plutot que d'attaquer une base
+
+-tour plus complexes
+	-effets de zones
+	-plusieurs missiles
+	-upgrades
+
+-éléments neutres
+	-obstacles
+	-énnemis imprévisibles et sans allégeance
+
+-permettre à l'utilisateur d'agir directement sur la partie
+	-bombes
+	-boost de vitesse par zone/unitées
+
+
