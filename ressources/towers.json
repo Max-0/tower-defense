@@ -1,16 +1,16 @@
 {
 	"fast" : {
 			"type" : "base",
-			"range" : 300,
-			"firerate" : 100,
+			"range" : 500,
+			"firerate" : 500,
 			"missiletype" : "fast",
 			"ressId" : 1,
 			"size" : "(60, 60)"
 		 },
 	"slow" : {
 			"type" : "base",
-			"range" : 900,
-			"firerate" : 50,
+			"range" : 1000,
+			"firerate" : 1000,
 			"missiletype" : "slow",
 			"ressId" : 1,
 			"size" : "(60, 60)"

@@ -8,15 +8,14 @@ class Tower(GameObject):
         self.range = range
         self.firerate = firerate
         self.missileFactory = missileFactory
-        if(not lastFire):
-            self.lastFire = time.time()
+        self.lastFire = time.time()*1000.0
 
     def canShoot(self, target):
-        return time.time() - self.lastFire < self.firerate and distance(target.pos, self.pos) < self.range
+        return (time.time()*1000.0 - self.lastFire) >= self.firerate and distance(target.pos, self.pos) < self.range
 
     def shoot(self, target):
         self.missileFactory.new(self.pos, target)
-        self.lastFire = time.time()
+        self.lastFire = time.time()*1000.0
 
 
 class Missile(GameObject):

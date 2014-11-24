@@ -30,7 +30,11 @@ class menuView(tk.Frame):
         self.clearButtonRessource = self.ressourceManager.getRessource(5).photo
         self.clearButton = ImageLabel(self, self.clearButtonRessource)
         self.clearButton.pack()
+        self.newTroopButtonRessource = self.ressourceManager.getRessource(6).photo
+        self.newTroopButton = ImageLabel(self, self.newTroopButtonRessource)
+        self.newTroopButton.pack()
         self.clearButton.bind("<Button-1>", root.wipeFlag)
+        self.newTroopButton.bind("<Button-1>", root.testTroops)
         
 class mapView(tk.Canvas):
     """docstring for mapView"""
@@ -68,6 +72,10 @@ class Application(tk.Tk):
 
         #self.pack()
         #self.createWidgets()
+
+    def testTroops(self, event):
+        self.model.newRandomTroop(config.window["width"], config.window["height"])
+
     def delay(self, callback, time=2000):
         self.after(time, callback)
 
