@@ -9,8 +9,6 @@ v
 				TODO Code
 ###############################################################################
 
--corriger bugs flagpath
-
 -gérer points de vie des troupes (à l'initialisations et à la mort)
 
 -préparer le code pour permettre de complexifier les objets 

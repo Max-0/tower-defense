@@ -60,7 +60,7 @@ class GameLog(object):
         if (not GameLog.logs):
             GameLog.logs = {}
             for log in logList:
-            	GameLog.logs[log[0]] = GameLog.__GameLog(open(config.currentDir+"/"+log[1], 'a'))
+            	GameLog.logs[log[0]] = GameLog.__GameLog(open(config.currentDir+"/"+log[1], 'w'))
             for log in GameLog.logs.keys():
             	GameLog.logs[log].log(programStartedToken)
 
@@ -134,7 +134,7 @@ class GameObject(object):
 		res = "GameObject "+str(self.id)+" : \n" + \
 			  "    Position " + "(" + str(self.pos[0]) + ", " + str(self.pos[1]) + ")\n" + \
 			  "    Vitesse " + "(" + str(self.speed[0]) + ", " + str(self.speed[1]) + ")\n" + \
-			  "    Existe " + "True\n" if(self.exists) else "False\n" + \
+			  "    Existe " + ("True\n" if(self.exists) else "False\n") + \
 			  "    Taille " +  "(" + str(self.size[0]) + ", " + str(self.size[1]) + ")\n" + \
 			  "    RessId " + str(self.ressId) + "\n" + \
 			  "    Points de vie " + str(self.lifePoints) + "/" +str(self.maxLifePoints) + "\n"

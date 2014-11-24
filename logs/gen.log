@@ -1,93 +1,44 @@
-2014-11-24 12:24:56.835413:
+2014-11-24 14:26:38.357372:
     #########################################################
                              started
     #########################################################
     
-2014-11-24 12:26:37.443174:
-    #########################################################
-                             started
-    #########################################################
-    
-2014-11-24 12:27:23.746929:
-    #########################################################
-                             started
-    #########################################################
-    
-2014-11-24 12:27:24.113963:
+2014-11-24 14:26:38.679312:
     Tower 4 :
         range 1000
         fire rate 1000
-        last fire 1416828444113.5728
-        <super: <class 'Tower'>, <Tower object>>
+        last fire 1416835598678.6663
+        GameObject 4 : 
+            Position (669, 475)
+            Vitesse (0, 0)
+            Existe True
+            Taille (60, 60)
+            RessId 1
+            Points de vie 0/0
+        
     Tower 5 :
         range 500
         fire rate 500
-        last fire 1416828444113.6172
-        <super: <class 'Tower'>, <Tower object>>
-    Missile 7 : 
-        dammages 100
-        max speed 6
-        targetId 6
-        <super: <class 'Missile'>, <Missile object>>
-    Troop 6 : 
-        flag path     FlagPath : 
-            Flag 1 : 
-                <super: <class 'Flag'>, <Flag object>>
-            
-            Flag 2 : 
-                <super: <class 'Flag'>, <Flag object>>
-            
-            Flag 3 : 
-                <super: <class 'Flag'>, <Flag object>>
-            
-            <super: <class 'FlagPath'>, <FlagPath object>>
-        
-        finalTarget     EnnemyBase 0 
-            <super: <class 'EnnemyBase'>, <EnnemyBase object>>
-        
-        actFlagIndex 1
-        <super: <class 'Troop'>, <Troop object>>
-    EnnemyBase 0 
-        <super: <class 'EnnemyBase'>, <EnnemyBase object>>
-    Flag 1 : 
-        <super: <class 'Flag'>, <Flag object>>
-    Flag 2 : 
-        <super: <class 'Flag'>, <Flag object>>
-    Flag 3 : 
-        <super: <class 'Flag'>, <Flag object>>
-    
-2014-11-24 12:31:33.327690:
-    #########################################################
-                             started
-    #########################################################
-    
-2014-11-24 12:31:33.646245:
-    Tower 4 :
-        range 1000
-        fire rate 1000
-        last fire 1416828693645.7163
-        GameObject 4 : 
-            Position (435, 607)
-            Vitesse (0, 0)
-            Existe True
-        
-    Tower 5 :
-        range 1000
-        fire rate 1000
-        last fire 1416828693645.785
+        last fire 1416835598678.709
         GameObject 5 : 
-            Position (796, 49)
+            Position (11, 333)
             Vitesse (0, 0)
             Existe True
+            Taille (60, 60)
+            RessId 1
+            Points de vie 0/0
         
     Missile 7 : 
         dammages 300
         max speed 3
         targetId 6
         GameObject 7 : 
-            Position (604, 917)
+            Position (512, 440)
             Vitesse (0, 0)
             Existe True
+            Taille (5, 5)
+            RessId 0
+            Points de vie 0/0
         
     Troop 6 : 
         flag path     FlagPath : 
@@ -96,6 +47,9 @@
                     Position (600, 100)
                     Vitesse (0, 0)
                     Existe True
+                    Taille (10, 10)
+                    RessId 4
+                    Points de vie 0/0
                 
             
             Flag 2 : 
@@ -103,6 +57,9 @@
                     Position (500, 500)
                     Vitesse (0, 0)
                     Existe True
+                    Taille (10, 10)
+                    RessId 4
+                    Points de vie 0/0
                 
             
             Flag 3 : 
@@ -110,26 +67,35 @@
                     Position (250, 250)
                     Vitesse (0, 0)
                     Existe True
+                    Taille (10, 10)
+                    RessId 4
+                    Points de vie 0/0
                 
             
-            <model.gameObjs.FlagPath object at 0xb605092c>
+            <model.gameObjs.FlagPath object at 0xb60292cc>
         
         finalTarget     EnnemyBase 0 
             GameObject 0 : 
                 Position (0, 0)
                 Vitesse (0, 0)
                 Existe True
+                Taille (40, 40)
+                RessId 3
+                Points de vie 500/500
             
         
-        actFlagIndex 1
+        actFlagIndex 0
         Missile 6 : 
             dammages 300
             max speed 2
-            targetId 2
+            targetId 1
             GameObject 6 : 
-                Position (514, 368)
+                Position (451, 125)
                 Vitesse (0, 0)
                 Existe True
+                Taille (20, 20)
+                RessId 2
+                Points de vie 0/0
             
         
     EnnemyBase 0 
@@ -137,23 +103,35 @@
             Position (0, 0)
             Vitesse (0, 0)
             Existe True
+            Taille (40, 40)
+            RessId 3
+            Points de vie 500/500
         
     Flag 1 : 
         GameObject 1 : 
             Position (600, 100)
             Vitesse (0, 0)
             Existe True
+            Taille (10, 10)
+            RessId 4
+            Points de vie 0/0
         
     Flag 2 : 
         GameObject 2 : 
             Position (500, 500)
             Vitesse (0, 0)
             Existe True
+            Taille (10, 10)
+            RessId 4
+            Points de vie 0/0
         
     Flag 3 : 
         GameObject 3 : 
             Position (250, 250)
             Vitesse (0, 0)
             Existe True
+            Taille (10, 10)
+            RessId 4
+            Points de vie 0/0
         
     

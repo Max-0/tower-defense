@@ -1,2 +1,15 @@
--Les troupes ignorent complétement le premier flag
--si changement de flag, les nouvelles troupes considèrent le dernier flag comme cible finale (ne vont pas jusqu'à la base)
+####################################
+				UNFIXED
+####################################
+
+
+
+####################################
+				FIXED
+####################################
+
+	-Les troupes ignorent complétement le premier flag	
+				[pb d'incrementation à l'initialisation]
+
+	-si changement de flag, les nouvelles troupes considèrent le dernier flag comme cible finale (ne vont pas jusqu'à la base)
+				[la base était détruite mais les troupes ne vérifiaient qu'après le dernier drapeau]

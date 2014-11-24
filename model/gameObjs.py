@@ -82,7 +82,7 @@ class Troop(Missile):
         super(Troop, self).__init__(dmg, None, maxSpeed, pos)
         self.flagPath = flagPath
         self.finalTarget = finalTarget
-        self.actFlag = 0
+        self.actFlag = -1
         self.nextTarget()
 
     def nextTarget(self):
@@ -93,7 +93,7 @@ class Troop(Missile):
             self.target = self.finalTarget
 
     def nextMove(self):
-        if(self.exists and self.target.exists):
+        if(self.exists and self.target.exists and self.finalTarget.exists):
             if(squareCollide(self, self.target)):
                 if(self.target is self.finalTarget):
                     self.target.hit(self.dmg)
