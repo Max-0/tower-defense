@@ -9,6 +9,10 @@ v
 				TODO Code
 ###############################################################################
 
+-changer interactions entre gameobjects, se baser sur collisions+faction
+
+-préparer animations
+
 -préparer le code pour permettre de complexifier les objets 
 	(plusieurs missiles par tour par exemple)
 
@@ -27,9 +31,6 @@ v
 ###############################################################################
 				TODO Game Design
 ###############################################################################
-
--trouver de jolis sprites pour les tests (j'ai mal aux yeux à chaque fois)
-
 
 -garder le comportement des missiles ou changer? (tête chercheuses vs 
 						  tir anticipé)
